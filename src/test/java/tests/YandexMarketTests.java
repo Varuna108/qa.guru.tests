@@ -12,31 +12,17 @@ import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 import static helpers.Environment.*;
 
+@Tag("yandex")
 public class YandexMarketTests extends TestBase {
 
-    @Test
-    @Description("Positive test")
-    void successProductSearch() {
-        open(yandexMarketUrl);
-
-
-        $("#header-search").setValue(yandexMarketItemName).pressEnter();
-        $x("//h3/a").click();
-        switchTo().window(1);
-
-
-        $(".n-title__text").shouldHave(text("Смартфон Apple iPhone 8 64GB"));
-    }
-
-// то же самое, только через PageObject > YandexMarketPage
     @Test
     @Description("Positive test with PO")
     void successProductSearchWithPO() {
         YandexMarketPage yandexMarketPage = new YandexMarketPage();
 
-        open(yandexMarketUrl);
+        yandexMarketPage.openUrl();
 
-        yandexMarketPage.typeSearchItem(yandexMarketItemName);
+        yandexMarketPage.typeSearchItem("iPhone 8");
 
         yandexMarketPage.selectItem();
 

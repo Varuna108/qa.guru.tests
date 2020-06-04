@@ -1,19 +1,22 @@
 package pages;
 
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selenide.*;
-import static helpers.Environment.yandexMarketItemName;
+import static helpers.Environment.yandexMarketUrl;
 
 public class YandexMarketPage {
     SelenideElement
             searchMarketItem = $("#header-search"),
             clickMarketItem = $x("//h3/a"),
-            verifyMarketItem = $(".n-title__text");
+            verifyMarketItem = $("div[data-apiary-widget-id='/content/productCardTitle']");
+
+    @Step("Переход на сайт market.yandex.ru")
+    public void openUrl () {
+        open(yandexMarketUrl);
+    }
 
     @Step("Ввод текста в поле поиска")
     public void typeSearchItem (String text) {
@@ -31,6 +34,4 @@ public class YandexMarketPage {
         verifyMarketItem.shouldHave(text(text));
 
     }
-
-
 }

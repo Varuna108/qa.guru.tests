@@ -40,13 +40,13 @@ allure {
 }
 
 dependencies {
-    compile 'io.github.cdimascio:java-dotenv:5.1.3'
     testImplementation 'org.aspectj:aspectjweaver:1.9.5'
     testImplementation 'com.codeborne:selenide:5.11.1'
     testImplementation "io.qameta.allure:allure-selenide:${allureVersion}"
     testImplementation "io.qameta.allure:allure-rest-assured:${allureVersion}"
     testImplementation 'io.rest-assured:rest-assured:4.1.2'
     testImplementation 'ch.qos.logback:logback-classic:1.2.3'
+//    compile group: 'io.github.cdimascio', name: 'java-dotenv', version: '5.2.1'
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
@@ -60,11 +60,15 @@ tasks.withType(Test) {
     systemProperties = System.properties
 }
 
-task facebook_tests(type: Test) {
+task tests(type: Test) {
     useJUnitPlatform {
-        includeTags 'facebook'
+        includeTags 'google'
+        includeTags 'yandex'
+        includeTags 'tinkoff'
     }
 }
+
+
 task google_tests(type: Test) {
     useJUnitPlatform {
         includeTags 'google'
@@ -74,6 +78,12 @@ task google_tests(type: Test) {
 task yandex_tests(type: Test) {
     useJUnitPlatform {
         includeTags 'yandex'
+    }
+}
+
+task tinkoff_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags 'tinkoff'
     }
 }
 
