@@ -60,11 +60,9 @@ tasks.withType(Test) {
     systemProperties = System.properties
 }
 
-task tests(type: Test) {
+task start_tests(type: Test) {
     useJUnitPlatform {
         includeTags 'google'
-        includeTags 'yandex'
-        includeTags 'tinkoff'
     }
 }
 
