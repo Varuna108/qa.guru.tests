@@ -8,7 +8,7 @@ buildscript {
 }
 
 plugins {
-    id 'java-library'
+    id 'java'
     id 'application'
     id 'io.qameta.allure' version '2.8.1'
 }
@@ -88,11 +88,9 @@ task tinkoff_tests(type: Test) {
 }
 
 sourceSets {
-    test {
+    tests {
         java {
-            srcDirs = ["src"]
+            srcDirs = ["src/tests/java"]
         }
     }
 }
-
-
