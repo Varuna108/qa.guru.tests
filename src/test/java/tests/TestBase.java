@@ -15,10 +15,10 @@ public class TestBase {
     @BeforeAll
     public static void setUp() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
-        if (System.getProperty("selenoid_url") != null) {
-            Configuration.remote = "http://" + System.getProperty("selenoid_url") + ":4444/wd/hub";
+        System.setProperty("selenoid_url", "selenoid.autotest.su");
+        Configuration.remote = "http://" + System.getProperty("selenoid_url") + ":4444/wd/hub";
         }
-    }
+
 
     @AfterEach
     public void closeBrowser(){
