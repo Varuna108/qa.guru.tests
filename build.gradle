@@ -87,4 +87,12 @@ task tinkoff_tests(type: Test) {
     }
 }
 
+sourceSets {
+    main {
+        java {
+            srcDirs = ["src"]
+        }
+    }
+}
+
 
