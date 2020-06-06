@@ -16,10 +16,10 @@ import static helpers.AttachmentsHelper.*;
 public class TestBase {
 
     @BeforeEach
-    void setUp() {
+    void beforeEach() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
-        System.setProperty("selenoid_url", "autotest.su");
-//        Configuration.remote = "http://" + System.getProperty("selenoid_url") + ":4444/wd/hub";
+//        System.setProperty("selenoid_url", "autotest.su");
+//       Configuration.remote = "http://" + System.getProperty("selenoid_url") + ":4444/wd/hub";
         Configuration.browser = CustomWebDriver.class.getName();
     }
 

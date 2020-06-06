@@ -57,7 +57,7 @@ tasks.withType(JavaCompile) {
 }
 
 tasks.withType(Test) {
-    systemProperties = System.properties
+    systemProperties = System.properties as Map<String, ?>
 }
 
 task start_tests(type: Test) {

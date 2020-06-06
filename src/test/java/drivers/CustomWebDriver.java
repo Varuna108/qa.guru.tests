@@ -1,6 +1,7 @@
 package drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
+import helpers.Environment;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,6 +14,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import static com.codeborne.selenide.Browsers.CHROME;
+import static helpers.Environment.selenoid_url;
 
 
 public class CustomWebDriver implements WebDriverProvider {
@@ -26,11 +28,12 @@ public class CustomWebDriver implements WebDriverProvider {
         capabilities.setCapability(ChromeOptions.CAPABILITY, getChromeOptions());
         WebDriverManager.chromedriver().setup();
 
-        if(System.getProperty("selenoid_url") != null) {
+        if (selenoid_url != null) {
             return new RemoteWebDriver(getRemoteWebdriverUrl(), capabilities);
         } else {
             return new ChromeDriver(capabilities);
         }
+
     }
 
     private ChromeOptions getChromeOptions() {
@@ -46,7 +49,7 @@ public class CustomWebDriver implements WebDriverProvider {
 
     private URL getRemoteWebdriverUrl() {
         try {
-            return new URL( "http://" + System.getProperty("selenoid_url") + ":4444/wd/hub/");
+            return new URL("http://" + selenoid_url + ":4444/wd/hub/");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
