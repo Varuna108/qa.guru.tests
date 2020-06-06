@@ -65,7 +65,6 @@ task start_tests(type: Test) {
         includeTags 'google'
         includeTags 'yandex'
         includeTags 'tinkoff'
-
     }
 }
 

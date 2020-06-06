@@ -1,5 +1,6 @@
 package drivers;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverProvider;
 import helpers.Environment;
 import io.github.bonigarcia.wdm.WebDriverManager;

@@ -12,6 +12,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import static com.codeborne.selenide.Browsers.CHROME;
 import static com.codeborne.selenide.WebDriverRunner.closeWebDriver;
 import static helpers.AttachmentsHelper.*;
+import static helpers.Environment.selenoid_url;
 
 public class TestBase {
 
@@ -19,8 +20,8 @@ public class TestBase {
     void beforeEach() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
 //        System.setProperty("selenoid_url", "autotest.su");
-//       Configuration.remote = "http://" + System.getProperty("selenoid_url") + ":4444/wd/hub";
-        Configuration.browser = CustomWebDriver.class.getName();
+       Configuration.remote = "http://" + selenoid_url + ":4444/wd/hub";
+       Configuration.browser = CustomWebDriver.class.getName();
     }
 
 
