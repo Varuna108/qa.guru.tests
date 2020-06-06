@@ -88,9 +88,9 @@ task tinkoff_tests(type: Test) {
 }
 
 sourceSets {
-    tests {
+    test {
         java {
-            srcDirs = ["src/tests/java"]
+            srcDirs = ['src/test/java']
         }
     }
 }
