@@ -20,9 +20,9 @@ public class TestBase {
         }
 
 
-    @AfterEach
-    public void closeBrowser(){
-        closeWebDriver();
-    }
+//    @AfterEach
+//    public void closeBrowser(){
+//        closeWebDriver();
+//    }
 }
 
