@@ -15,7 +15,7 @@ public class TestBase {
     @BeforeAll
     public static void setUp() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
-        System.setProperty("selenoid_url", "selenoid.autotest.su");
+        System.setProperty("selenoid_url", "selenoid.autotests.cloud");
         Configuration.remote = "http://" + System.getProperty("selenoid_url") + ":4444/wd/hub";
         }
 
