@@ -63,6 +63,8 @@ tasks.withType(Test) {
 task start_tests(type: Test) {
     useJUnitPlatform {
         includeTags 'google'
+        includeTags 'yandex'
+        includeTags 'tinkoff'
 
     }
 }
