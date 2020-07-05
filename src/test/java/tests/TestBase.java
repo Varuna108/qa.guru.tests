@@ -25,7 +25,12 @@ import static helpers.Environment.selenoid_url;
 public class TestBase {
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws MalformedURLException {
+        final DesiredCapabilities caps = DesiredCapabilities.chrome();
+        caps.setCapability("enableVNC", true);
+        caps.setCapability("enableVideo", true);
+        RemoteWebDriver driver = new RemoteWebDriver(new URL("http://autotest.su:4444/wd/hub"), caps);
+        WebDriverRunner.setWebDriver(driver);
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
         Configuration.browser = CustomWebDriver.class.getName();
     }

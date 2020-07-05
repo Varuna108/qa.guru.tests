@@ -42,10 +42,12 @@ public class AttachmentsHelper {
         String videoUrl = getVideoUrl();
         System.out.println(videoUrl);
 
+
         return "<html><body><video width='100%' height='100%' controls autoplay><source src='"
                 + videoUrl
                 + "' type='video/mp4'></video></body></html>";
     }
+
 
     public static String getVideoUrl() {
         try {
